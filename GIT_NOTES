@@ -1,0 +1,101 @@
+vX.Y.Z
+
+major, minor, patch
+
+major - significant changes and cannot work with previous versions, such as change of framework
+minor - significant bug fixes are implemented or new feature (e.g. new button)
+revision - minor bug fixes are implemented e.g (fixing a logic bug)
+
+example v4.2.3
+
+Version Control
+
+- Records Changes to source code, documents or any files related to the project over time / backup
+- Can go back / recall any specific version later if changes need to be restored(e.g. accident delete all the code)
+- Keep track of all changes to source code / history
+- Safely create and test new feature 
+
+Distributed Version Control Systems (DVCS)
+
+- Fully mirror the repository, including its full history
+- If a server is failed, client repositories can be copied back up to the server to restore
+- Every clone is really a full backup of all the data
+
+
+[GIT] (DVCS)
+
+- Captures snapshot (or called commits) not just current changes (each commit makes a full copy of the software) 
+
+--------------------------------------------------------------------
+//
+//
+--------------------------Git Commit Graph--------------------------
+
+git init -> Repository.git (initialise a hidden repository folder)
+add 2 files, F1,F2 (add file 1, add file2) / commit A
+
+
+[file1] [file2]		//2 files added to the repository (COMMIT A) //snapshot 1
+
+	|
+	|
+
+*edits file1* 		//*start making changes to file1*
+	
+	|
+	|
+
+[*new file1*] [file2]	//commit changes (COMMIT B) //snapshot 2		--By committing B this it creates a new version with a changed file1 but unchanged file2 copy
+
+	|
+	|
+
+*deletes file2*		//*delete file2*
+
+	|
+	|
+
+     [file1]		//commit changes (COMMIT C) // snapshot 3		--By committing C this saves a new version with the changes in this case *file2* is deleted so there is only file1 still exist
+
+Final Repository look ([file1])
+
+--------------------------Git Commit Graph--------------------------
+//
+//
+//
+//
+//
+//
+//
+--------------------------Git Working Area--------------------------
+
+Working Directory / Working Tree
+- where files live
+-untracked area of Git(NOT added to the VCS)
+-nothing is saved if something goes wrong and u cant undo it
+
+Staging Area / Index
+
+-files that are ready to be committed and become history
+
+Repository / History / Snapshot
+-Stores histories and snapshots
+
+--------------------------Git Working Area--------------------------
+//
+//
+//
+//
+//
+//
+//
+--------------------------Git Branching--------------------------
+3 different branches and head can only work on one branch at a time
+
+Testing 
+Master  <--- HEAD
+Dev
+
+- Create branches by "git branch x" (name of branch e.g. testing)
+- Jump into branches by "git checkout x" (name of branch e.g. testing)
+
